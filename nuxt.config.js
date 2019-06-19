@@ -1,4 +1,5 @@
 const pkg = require('./package')
+const path = require('path')
 
 module.exports = {
   mode: 'universal',
@@ -24,7 +25,7 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [],
+  css: ['~assets/scss/sustained.scss'],
 
   /*
   ** Plugins to load before mounting the App
@@ -34,10 +35,16 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
-  modules: [
-    // Doc: https://bootstrap-vue.js.org/docs/
-    'bootstrap-vue/nuxt'
-  ],
+  modules: ['nuxt-purgecss'],
+
+  /*
+  ** Fonts
+  */
+  webfontloader: {
+    google: {
+      families: ['Lato:400,700'] //Loads Lato font with weights 400 and 700
+    }
+  },
 
   /*
   ** Build configuration
@@ -55,6 +62,12 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+      }
+    },
+
+    postcss: {
+      plugins: {
+        tailwindcss: path.resolve(__dirname, './tailwind.config.js')
       }
     }
   }
