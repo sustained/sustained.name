@@ -1,0 +1,34 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  display: block;
+}
+
+.large-title {
+  @apply text-6xl font-light tracking-wider;
+}
+
+.large-subtitle {
+  @apply text-4xl font-light tracking-wider;
+}
+
+.normal-title {
+  @apply text-2xl font-normal tracking-wide;
+}
+
+.normal-subtitle {
+  @apply text-xl font-normal tracking-wide;
+}
+
+.small-title {
+  @apply text-xl font-medium tracking-normal;
+}
+
+.small-subtitle {
+  @apply text-lg font-medium tracking-normal;
+}

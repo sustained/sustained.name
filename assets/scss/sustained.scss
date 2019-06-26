@@ -1,0 +1,40 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+html {
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  background-color: #202225;
+}
+
+.card {
+  background-color: #2f3136;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.button {
+  @apply px-3 py-1 border font-semibold rounded-lg text-black;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+@import "./navigation.scss";
+@import "./containers.scss";
+@import "./headers.scss";
+@import "./colours.scss";

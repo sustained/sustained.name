@@ -1,0 +1,80 @@
+header.main {
+  min-height: 80px;
+  background: #36393f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  // #logo {
+  //   transition: color 2s;
+  // }
+
+  nav ul,
+  nav ul li a {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+  }
+
+  nav {
+    ul {
+      li {
+        a {
+          @apply border-b-2 border-solid font-bold border-transparent px-6;
+
+          &[href="/"] {
+            @apply text-red-500;
+
+            &.nuxt-link-exact-active {
+              @apply border-red-500;
+            }
+          }
+
+          &[href^="/blog"] {
+            @apply text-blue-500;
+
+            &.nuxt-link-active {
+              @apply border-blue-500;
+            }
+          }
+
+          &[href^="/projects"] {
+            @apply text-green-500;
+
+            &.nuxt-link-active {
+              @apply border-green-500;
+            }
+          }
+
+          &[href^="/portfolio"] {
+            @apply text-orange-500;
+
+            &.nuxt-link-active {
+              @apply border-orange-500;
+            }
+          }
+
+          &[href^="/resume"] {
+            @apply text-purple-500;
+
+            &.nuxt-link-active {
+              @apply border-purple-500;
+            }
+          }
+
+          &[href^="/hire-me"] {
+            @apply text-pink-500;
+
+            &.nuxt-link-active {
+              @apply border-pink-500;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#logo {
+  margin-left: 1rem;
+}

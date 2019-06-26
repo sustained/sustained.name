@@ -1,0 +1,114 @@
+/*
+  Apply colours to a variety of elements depending on the "section".
+
+  Sections are as follows:
+
+    - home
+    - about
+    - blog
+    - projects
+    - portfolio
+    - resume
+    - hire-me
+*/
+
+//   transition: color 2s;
+//   transition-delay: 0.1s;
+
+p {
+  @apply text-gray-300;
+}
+
+.button {
+  @apply text-black;
+}
+
+.section-home {
+  #logo,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .link {
+    @apply text-red-600;
+  }
+
+  .button {
+    @apply border-red-600 bg-red-800;
+  }
+}
+
+.section-blog {
+  #logo,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a.link {
+    @apply text-blue-600;
+  }
+
+  .button {
+    @apply border-blue-600 bg-blue-800;
+  }
+}
+
+.section-projects {
+  #logo,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a.link {
+    @apply text-green-600;
+  }
+}
+
+.iamatest {
+  color: red;
+}
+
+.section-portfolio {
+  #logo,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a.link {
+    @apply text-orange-600;
+  }
+}
+
+.section-resume {
+  #logo,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a.link {
+    @apply text-purple-600;
+  }
+}
+
+.section-hire-me {
+  #logo,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a.link {
+    @apply text-pink-600;
+  }
+}
