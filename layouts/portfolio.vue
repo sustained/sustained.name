@@ -1,5 +1,5 @@
 <template>
-  <div class="section-home">
+  <div class="section-portfolio">
     <header class="main">
       <logo/>
 
