@@ -1,6 +1,9 @@
 import path from "path";
 import pkg from "./package";
 import markdown from "./library/markdown-it";
+import { tags, articles, categories } from "./library/blog";
+
+console.log("!!!", tags, articles, categories);
 
 export default {
   mode: "universal",
@@ -105,6 +108,41 @@ export default {
           grid: true
         }
       }
+    }
+  },
+
+  /*
+  generate: {
+    routes: function () {
+      let posts = axios.get('https://api.com/posts', {params: {size: 10}}).then((res) => {
+        return res.data.posts.map((post) => {
+          return '/feed/' + post.id
+        })
+      })
+      let users = axios.get('https://api.com/users', {params: {size: 10}}).then((res) => {
+        return res.data.content.map((user) => {
+          return '/user/' + user.id
+        })
+      })
+      return Promise.all([posts, users]).then(values => {
+        return values.join().split(',');
+      })
+    }
+  },
+  */
+
+  generate: {
+    routes() {
+      const tagRoutes = tags.map(tag => {
+        return {
+          route: tag.path,
+          payload: tag
+        };
+      });
+
+      const result = [...tagRoutes];
+      console.log("so...", result);
+      return result;
     }
   }
 };
