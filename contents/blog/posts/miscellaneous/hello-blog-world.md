@@ -1,8 +1,12 @@
 ---
-subject: Hello
+slug: hello-blog-world
+title: Hello, Blog World!
 components:
   - Foo
   - Bar
+tags:
+  - foo
+  - baz
 ---
 
 # Title
