@@ -1,27 +1,6 @@
 import path from "path";
-
-import hljs from "highlight.js";
-
 import pkg from "./package";
-
-const md = require("markdown-it")({
-  html: true,
-  linkify: true,
-  typographer: false,
-  highlight: (str, lang) => {
-    if (lang && hljs.getLanguage(lang)) {
-      try {
-        return (
-          '<pre class="hljs"><code>' +
-          hljs.highlight(lang, str, true).value +
-          "</code></pre>"
-        );
-      } catch (__) {}
-    }
-
-    return ""; // use external default escaping
-  }
-});
+import markdown from "./library/markdown-it";
 
 export default {
   mode: "universal",
@@ -54,7 +33,7 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [{ src: "~/plugins/after_each.js", mode: "client" }],
+  plugins: [],
 
   /*
   ** Nuxt.js modules
@@ -100,7 +79,7 @@ export default {
           },
 
           markdown: body => {
-            return md.render(body);
+            return markdown.render(body);
           }
         }
       });
