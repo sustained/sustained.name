@@ -1,9 +1,58 @@
-import path from "path";
+import { existsSync, mkdirSync, writeFileSync } from "fs";
+import { join, resolve } from "path";
 import pkg from "./package";
 import markdown from "./library/markdown-it";
+import { tags, articles, categories } from "./library/blog";
 
 export default {
   mode: "universal",
+
+  generate: {
+    routes() {
+      const tagRoutes = tags.map(tag => tag.path);
+      const articleRoutes = articles.map(article => article.path);
+      const categoryRoutes = categories.map(category => category.path);
+
+      return ["404", ...tagRoutes, ...articleRoutes, ...categoryRoutes];
+    }
+  },
+
+  hooks: {
+    build: {
+      before(builder) {
+        try {
+          const JSON_DIR = resolve(
+            builder.nuxt.options.srcDir,
+            "static",
+            "json"
+          );
+
+          console.log("JSON directory is " + JSON_DIR);
+
+          if (!existsSync(JSON_DIR)) mkdirSync(JSON_DIR);
+
+          writeFileSync(join(JSON_DIR, "tags.json"), JSON.stringify(tags));
+
+          writeFileSync(
+            join(JSON_DIR, "articles.json"),
+            JSON.stringify(articles)
+          );
+
+          writeFileSync(
+            join(JSON_DIR, "categories.json"),
+            JSON.stringify(categories)
+          );
+
+          console.log("Successfully wrote the blog JSON files.");
+        } catch (e) {
+          console.error(
+            "A problem occured while writing the blog JSON files.",
+            e
+          );
+        }
+      }
+    }
+  },
 
   /*
   ** Headers of the page
@@ -33,7 +82,7 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: ["plugins/setup-store.js"],
 
   /*
   ** Nuxt.js modules
@@ -72,7 +121,7 @@ export default {
       config.module.rules.push({
         test: /\.md$/,
         loader: "frontmatter-markdown-loader",
-        include: path.resolve(__dirname, "contents"),
+        include: resolve(__dirname, "contents"),
         options: {
           vue: {
             root: "dynamicMarkdown"
@@ -87,7 +136,7 @@ export default {
 
     postcss: {
       plugins: {
-        tailwindcss: path.resolve(__dirname, "./tailwind.config.js"),
+        tailwindcss: resolve(__dirname, "./tailwind.config.js"),
 
         cssnano: {
           preset: "default",
