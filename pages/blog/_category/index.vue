@@ -36,7 +36,10 @@ export default {
     }
   },
 
-  asyncData({ params }) {
+  asyncData({ params, error, store }) {
+    if (!store.getters["blog/categorySlugExists"](params.category))
+      return error({ statusCode: 404, message: "Category does not exist!" });
+
     return {
       categorySlug: params.category
     };

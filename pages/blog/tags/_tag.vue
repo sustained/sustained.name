@@ -41,6 +41,9 @@ export default {
   },
 
   asyncData({ store, error, params }) {
+    if (!store.getters["blog/tagSlugExists"](params.tag))
+      return error({ statusCode: 404, message: "Tag does not exist!" });
+
     return {
       tagSlug: params.tag
     };
