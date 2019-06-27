@@ -38,7 +38,7 @@ export default {
         tags: content.attributes.tags,
         render: content.vue.render,
         staticRenders: content.vue.staticRenderFns,
-        components: content.attributes.components
+        components: content.attributes.components || []
       };
     } catch (e) {
       error({ statusCode: 404, message: "That blog article does not exist!" });
