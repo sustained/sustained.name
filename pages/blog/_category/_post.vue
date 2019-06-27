@@ -23,8 +23,6 @@
 </template>
 
 <script>
-import "highlight.js/styles/zenburn.css";
-
 import BlogPost from "~/components/BlogPost.vue";
 
 import { stringify } from "gray-matter";
@@ -71,6 +69,15 @@ export default {
     } catch (e) {
       error({ statusCode: 404, message: "That blog article does not exist!" });
     }
+  },
+
+  mounted() {
+    const scrollTo = document.querySelector(location.hash);
+
+    if (scrollTo)
+      scrollTo.scrollIntoView({
+        behavior: "smooth"
+      });
   },
 
   methods: {
