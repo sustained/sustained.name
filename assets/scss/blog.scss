@@ -1,0 +1,100 @@
+@import "./headers.scss";
+
+.blog-article {
+  @apply text-gray-300 text-xl;
+
+  p {
+    @apply m-4;
+  }
+
+  .header-anchor {
+    scroll-behavior: smooth;
+
+    font-size: 1rem;
+    font-weight: normal;
+    letter-spacing: normal;
+    @apply p-4 text-white;
+  }
+
+  pre.hljs {
+    @apply mx-2 my-6 p-4;
+  }
+
+  ul {
+    list-style-type: disc;
+
+    &.contains-task-list {
+      list-style-type: none;
+
+      input {
+        @apply mr-2;
+      }
+    }
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul,
+  ol {
+    @apply ml-8;
+
+    li {
+      @apply my-2;
+    }
+  }
+
+  a {
+    font-weight: bold;
+    @apply text-blue-600;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply flex items-center py-4;
+  }
+
+  .table-of-contents {
+    ol {
+      counter-reset: list-item;
+    }
+
+    li {
+      display: block;
+      counter-increment: list-item;
+    }
+
+    li:before {
+      content: counters(list-item, ".") " ";
+    }
+  }
+
+  h1 {
+    @apply .large-title;
+  }
+
+  h2 {
+    @apply .large-subtitle;
+  }
+
+  h3 {
+    @apply .normal-title;
+  }
+
+  h4 {
+    @apply .normal-subtitle;
+  }
+
+  h5 {
+    @apply .small-title;
+  }
+
+  h6 {
+    @apply .small-subtitle;
+  }
+}
