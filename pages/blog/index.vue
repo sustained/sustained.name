@@ -13,7 +13,7 @@
 
         <ul class="flex w-full flex-wrap items-center justify-center text-center">
           <li v-for="(category, index) in categories" :key="index" class="flex-1 p-6 min-w-1/3">
-            <nuxt-link :to="category.path" class="link text-2xl">{{ category.name }}</nuxt-link>
+            <nuxt-link :to="category.path" class="link">{{ category.name }}</nuxt-link>
           </li>
         </ul>
       </div>
@@ -23,7 +23,7 @@
 
         <ul class="flex w-full flex-wrap items-center justify-center text-center">
           <li v-for="(tag, index) in tags" :key="index" class="flex-1 p-6 min-w-1/3">
-            <nuxt-link :to="tag.path" class="link text-2xl">{{ tag.name }}</nuxt-link>
+            <nuxt-link :to="tag.path" class="link">{{ tag.name }}</nuxt-link>
           </li>
         </ul>
       </div>
@@ -33,7 +33,7 @@
 
         <ul class>
           <li v-for="(article, index) in articles" :key="index" class="flex-1 p-6 w-full">
-            <nuxt-link :to="article.path" class="link text-2xl">{{ article.title}}</nuxt-link>
+            <nuxt-link :to="article.path" class="link">{{ article.title}}</nuxt-link>
           </li>
         </ul>
       </div>
