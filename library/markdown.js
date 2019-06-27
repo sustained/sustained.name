@@ -8,6 +8,8 @@ import tocIt from "markdown-it-toc-done-right";
 
 import twemoji from "twemoji";
 
+import { unescapeAll, escapeHtml } from "markdown-it/lib/common/utils";
+
 const mdInstance = markdownIt({
   html: true,
   linkify: true,
@@ -15,12 +17,13 @@ const mdInstance = markdownIt({
   highlight: (str, lang) => {
     if (lang && getLanguage(lang)) {
       try {
-        return (
-          '<pre class="hljs"><code>' +
-          highlight(lang, str, true).value +
-          "</code></pre>"
-        );
-      } catch (__) {}
+        return `
+          <code-block
+            lang="${lang}"
+            code="${mdInstance.utils.escapeHtml(str)}" />`;
+      } catch (e) {
+        console.error(e);
+      }
     }
 
     return "";
@@ -39,6 +42,26 @@ mdInstance
 
 mdInstance.renderer.rules.emoji = function(token, idx) {
   return twemoji.parse(token[idx].content);
+};
+
+mdInstance.renderer.rules.fence = function(tokens, idx, options, env, slf) {
+  const token = tokens[idx];
+  const info = token.info ? unescapeAll(token.info).trim() : "";
+  let langName = "";
+  let highlighted;
+
+  if (info) {
+    langName = info.split(/\s+/g)[0];
+  }
+
+  if (options.highlight) {
+    highlighted =
+      options.highlight(token.content, langName) || escapeHtml(token.content);
+  } else {
+    highlighted = escapeHtml(token.content);
+  }
+
+  return highlighted + "\n";
 };
 
 export default mdInstance;
