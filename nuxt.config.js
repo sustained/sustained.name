@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { join, resolve } from "path";
 import pkg from "./package";
-import markdown from "./library/markdown-it";
+import markdown from "./library/markdown";
 import { tags, articles, categories } from "./library/blog";
 
 export default {
