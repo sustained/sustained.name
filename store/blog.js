@@ -61,7 +61,7 @@ export const getters = {
 
   tagSlugExists(state) {
     return slug => {
-      return state.categories.some(tag => tag.slug === slug);
+      return state.tags.some(tag => tag.slug === slug);
     };
   }
 };
