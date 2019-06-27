@@ -2,14 +2,30 @@ export const state = () => {
   return {
     tags: [],
     articles: [],
-    categories: []
+    categories: [],
+
+    showCategories: true,
+    showTags: true
   };
 };
 
 export const mutations = {
   setTags: (state, payload) => (state.tags = payload),
   setArticles: (state, payload) => (state.articles = payload),
-  setCategories: (state, payload) => (state.categories = payload)
+  setCategories: (state, payload) => (state.categories = payload),
+
+  setShowTags: (state, payload) => (state.showTags = payload),
+  setShowCategories: (state, payload) => (state.showCategories = payload)
+};
+
+export const actions = {
+  toggleShowTags({ commit, state }) {
+    commit("setShowTags", !state.showTags);
+  },
+
+  toggleShowCategories({ commit, state }) {
+    commit("setShowCategories", !state.showCategories);
+  }
 };
 
 export const getters = {

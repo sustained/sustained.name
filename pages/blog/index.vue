@@ -45,8 +45,8 @@
 export default {
   data() {
     return {
-      showCategories: true,
-      showTags: true
+      // showCategories: true,
+      // showTags: true
     };
   },
 
@@ -69,6 +69,14 @@ export default {
 
     showTagsText() {
       return this.showTags ? "Hide Tags" : "Show Tags";
+    },
+
+    showCategories() {
+      return this.$store.state.blog.showCategories;
+    },
+
+    showTags() {
+      return this.$store.state.blog.showTags;
     }
   },
 
@@ -76,11 +84,11 @@ export default {
 
   methods: {
     toggleCategories() {
-      this.showCategories = !this.showCategories;
+      this.$store.dispatch("blog/toggleShowCategories");
     },
 
     toggleTags() {
-      this.showTags = !this.showTags;
+      this.$store.dispatch("blog/toggleShowTags");
     }
   }
 };
