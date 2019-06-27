@@ -72,12 +72,18 @@ export default {
   },
 
   mounted() {
-    const scrollTo = document.querySelector(location.hash);
+    try {
+      if (!location.hash.length) return;
 
-    if (scrollTo)
-      scrollTo.scrollIntoView({
-        behavior: "smooth"
-      });
+      const scrollTo = document.querySelector(location.hash);
+
+      if (scrollTo)
+        scrollTo.scrollIntoView({
+          behavior: "smooth"
+        });
+    } catch (e) {
+      console.error(e.message);
+    }
   },
 
   methods: {
