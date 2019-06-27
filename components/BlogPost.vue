@@ -32,11 +32,15 @@ export default {
       });
     },
 
-    getComponentNameAndPath(componentName) {
-      let componentPath = componentName;
+    getComponentNameAndPath(component) {
+      let componentPath = component;
+      let componentName = component;
 
-      if (typeof componentName !== "string") {
-        [componentName, componentPath] = Object.entries(componentName).flat();
+      if (typeof component !== "string") {
+        [componentName, componentPath] = Object.entries(component).reduce(
+          (accum, value) => accum.concat(value),
+          []
+        );
       }
 
       return [componentName, componentPath];
