@@ -8,13 +8,11 @@
 
     <main class="blog-article">
       <div v-if="renderMode === 'html'" class="card p-4">
-        <no-ssr>
-          <BlogPost
-            :render-function="render"
-            :static-render-functions="staticRenders"
-            :component-list="components"
-          />
-        </no-ssr>
+        <BlogPost
+          :render-function="render"
+          :static-render-functions="staticRenders"
+          :component-list="components"
+        />
       </div>
 
       <div v-else-if="renderMode === 'markdown'" class="card p-4">
