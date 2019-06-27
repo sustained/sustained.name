@@ -82,7 +82,7 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ["plugins/setup-store.js"],
+  plugins: ["plugins/setup-store.js", "plugins/register-components.js"],
 
   /*
   ** Nuxt.js modules
