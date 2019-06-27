@@ -45,8 +45,8 @@
 export default {
   data() {
     return {
-      showCategories: false,
-      showTags: false
+      showCategories: true,
+      showTags: true
     };
   },
 
@@ -55,12 +55,12 @@ export default {
       return this.$store.state.blog.categories;
     },
 
-    articles() {
-      return this.$store.state.blog.articles;
+    tags() {
+      return this.$store.state.blog.tags;
     },
 
-    tags() {
-      return this.$store.getters["blog/tags"];
+    articles() {
+      return this.$store.state.blog.articles;
     },
 
     showCategoriesText() {

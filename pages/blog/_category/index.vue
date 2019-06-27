@@ -1,49 +1,49 @@
 <template>
-  <div class="iamatest">
-    <div v-if="hasArticles">
-      <p>I am the list of blog articles for this category.</p>
+  <section class="container-fixed pt-4">
+    <header class="flex items-center px-4">
+      <h1 class="normal-title flex-1">{{ category.name }}</h1>
+    </header>
 
-      <ul>
-        <li v-for="(article, index) in articles" :key="index">
-          <nuxt-link class="link" :to="article.path">{{ article.title }}</nuxt-link>
-        </li>
-      </ul>
-    </div>
+    <main>
+      <div class="card">
+        <h2 class="normal-subtitle block p-4 text-center">Articles</h2>
 
-    <div v-else>
-      <p>This category has no articles!</p>
-    </div>
-  </div>
+        <ul>
+          <li v-for="(article, index) in articles" :key="index" class="flex-1 p-6 w-full">
+            <nuxt-link :to="article.path" class="link">{{ article.title }}</nuxt-link>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </section>
 </template>
 
 <script>
-import { normalise, categories } from "~/data/blog.js";
-
 export default {
-  data() {
-    return {
-      articles: []
-    };
-  },
-
   computed: {
+    category() {
+      return this.$store.getters["blog/getCategoryForSlug"](this.categorySlug);
+    },
+
+    articles() {
+      return this.$store.getters["blog/articlesByCategorySlug"](
+        this.categorySlug
+      );
+    },
+
     hasArticles() {
       return this.articles.length;
     }
   },
 
-  asyncData({ store, error, params }) {
-    if (
-      !categories.some(category => normalise(category.name) === params.category)
-    )
-      return error({
-        statusCode: 404,
-        message: "That blog category does not exist!"
-      });
-
+  asyncData({ params }) {
     return {
-      articles: store.getters["blog/articlesByCategory"](params.category)
+      categorySlug: params.category
     };
+  },
+
+  created() {
+    console.log(this.category);
   },
 
   layout: "blog"
