@@ -1,6 +1,6 @@
 <template>
   <div>
-    <keep-alive>
+    <no-ssr>
       <iframe
         height="265"
         style="width: 100%;"
@@ -35,7 +35,7 @@
           on <a href="https://codepen.io">CodePen</a>.
         </span>
       </p>-->
-    </keep-alive>
+    </no-ssr>
   </div>
 </template>
 
