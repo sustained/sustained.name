@@ -2,40 +2,44 @@
 import Vue from "vue";
 
 export default {
-  components: {
-    CodePen,
-    CodeHighlight
-  },
-
   // eslint-disable-next-line
   props: ["renderFunction", "staticRenderFunctions", "componentList"],
 
-  computed: {
-    components() {
-      return this.componentList.reduce((components, component) => {
-        components[component] = () => import(`~/components/${component}.vue`);
-
-        return components;
-      }, {});
-    }
+  beforeDestroy() {
+    this.unregisterComponents();
   },
 
   created() {
+    this.registerComponents();
     this.renderer = new Function(this.renderFunction)();
     this.$options.staticRenderFns = new Function(this.staticRenderFunctions)();
   },
 
-  mounted() {
-    // this.initialiseHighlighting();
-  },
-
   methods: {
-    initialiseHighlighting() {
-      const codeBlocks = document.querySelectorAll("code");
+    registerComponents() {
+      this.componentList.forEach(component => {
+        const [name, path] = this.getComponentNameAndPath(component);
 
-      codeBlocks.forEach(code => {
-        highlight.highlightBlock(code);
+        Vue.component(name, () => import(`~/components/${path}.vue`));
       });
+    },
+
+    unregisterComponents() {
+      this.componentList.forEach(component => {
+        const [name] = this.getComponentNameAndPath(component);
+
+        delete Vue.options.components[name];
+      });
+    },
+
+    getComponentNameAndPath(componentName) {
+      let componentPath = componentName;
+
+      if (typeof componentName !== "string") {
+        [componentName, componentPath] = Object.entries(componentName).flat();
+      }
+
+      return [componentName, componentPath];
     }
   },
 
