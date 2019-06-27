@@ -3,8 +3,19 @@
 .blog-article {
   @apply text-gray-300 text-xl;
 
-  p {
-    @apply m-4;
+  .dynamicMarkdown {
+    & > ul,
+    & > ol {
+      @apply ml-8;
+
+      li {
+        @apply my-2;
+      }
+    }
+
+    & > p {
+      @apply m-4;
+    }
   }
 
   .header-anchor {
@@ -14,10 +25,6 @@
     font-weight: normal;
     letter-spacing: normal;
     @apply p-4 text-white;
-  }
-
-  pre.hljs {
-    @apply mx-2 my-6 p-4;
   }
 
   ul {
@@ -34,15 +41,6 @@
 
   ol {
     list-style-type: decimal;
-  }
-
-  ul,
-  ol {
-    @apply ml-8;
-
-    li {
-      @apply my-2;
-    }
   }
 
   a {
@@ -62,10 +60,12 @@
   .table-of-contents {
     ol {
       counter-reset: list-item;
+      @apply ml-8;
     }
 
     li {
       display: block;
+      @apply my-2;
       counter-increment: list-item;
     }
 
