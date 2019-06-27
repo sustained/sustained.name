@@ -12,7 +12,7 @@
         <h2 class="normal-title block p-4 text-center">Categories</h2>
 
         <ul class="flex w-full flex-wrap items-center justify-center text-center">
-          <li v-for="(category, index) in categories" :key="index" class="flex-1 p-6">
+          <li v-for="(category, index) in categories" :key="index" class="flex-1 p-6 min-w-1/3">
             <nuxt-link :to="category.path" class="link text-2xl">{{ category.name }}</nuxt-link>
           </li>
         </ul>
@@ -22,7 +22,7 @@
         <h2 class="normal-title block p-4 text-center">Tags</h2>
 
         <ul class="flex w-full flex-wrap items-center justify-center text-center">
-          <li v-for="(tag, index) in tags" :key="index" class="flex-1 p-6">
+          <li v-for="(tag, index) in tags" :key="index" class="flex-1 p-6 min-w-1/3">
             <nuxt-link :to="tag.path" class="link text-2xl">{{ tag.name }}</nuxt-link>
           </li>
         </ul>
@@ -93,10 +93,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-ul li {
-  display: block;
-  min-width: 33%;
-}
-</style>
