@@ -3,6 +3,7 @@ title: Weeeeeeeee
 tags:
   - foo
   - bar
+excerpt: Fun.
 ---
 
 # Weeeeeeee!

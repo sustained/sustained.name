@@ -1,19 +1,23 @@
 ---
 slug: hello-blog-world
 title: Hello, Blog World!
+excerpt: Hello!
 components:
   - Foo
   - Bar
+  - CodePen: embeds/CodePen
 tags:
   - foo
   - baz
+meta:
+  description: Testing testing 1 2 3.
 ---
 
 # Title
 
 Test.
 
-<component :is="components.Foo" />
+<Foo />
 
 ```css
 .foo {
@@ -31,7 +35,7 @@ Test.
 <p class="blah">Hi.</p>
 ```
 
-<code-pen :preview="true" id="ydVqEW" />
+<CodePen :preview="true" id="ydVqEW" />
 
 Hmm.
 
@@ -40,6 +44,8 @@ Hmm.
   alert("Hello World!!!");
 });
 ```
+
+<Bar />
 
 ```css
 p::last-child {
