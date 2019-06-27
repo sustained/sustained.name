@@ -1,18 +1,5 @@
 <script>
-import highlight from "highlight.js/lib/highlight";
-
-import js from "highlight.js/lib/languages/javascript";
-import xml from "highlight.js/lib/languages/xml";
-import css from "highlight.js/lib/languages/css";
-
-import "highlight.js/styles/zenburn.css";
-
-import CodePen from "~/components/embeds/CodePen.vue";
-import CodeHighlight from "~/components/embeds/CodeHighlight.vue";
-
-highlight.registerLanguage("javascript", js);
-highlight.registerLanguage("css", css);
-highlight.registerLanguage("xml", xml);
+import Vue from "vue";
 
 export default {
   components: {
