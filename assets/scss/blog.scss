@@ -18,6 +18,12 @@
     }
   }
 
+  .emoji {
+    display: inline-block;
+    max-height: 2rem;
+    vertical-align: middle;
+  }
+
   .header-anchor {
     scroll-behavior: smooth;
 
@@ -54,7 +60,7 @@
   h4,
   h5,
   h6 {
-    @apply flex items-center py-4;
+    @apply flex items-center py-1;
   }
 
   .table-of-contents {
