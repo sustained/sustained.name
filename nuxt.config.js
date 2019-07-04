@@ -66,6 +66,12 @@ export default {
       { hid: "description", name: "description", content: pkg.description }
     ],
 
+    metaInfo: {
+      htmlAttrs: {
+        lang: "en"
+      }
+    },
+
     bodyAttrs: {
       class: "no-js"
     },
