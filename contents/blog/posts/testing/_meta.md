@@ -1,4 +1,4 @@
 ---
 title: Test Category
-description: For the purposes of testing.
+description: What purpose could a category called test category possibly serve?
 ---

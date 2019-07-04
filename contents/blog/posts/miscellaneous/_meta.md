@@ -1,4 +1,4 @@
 ---
-title: Misc.
-description: Random stuff.
+title: Miscellaneous
+description: Because categorisation is hard.
 ---
