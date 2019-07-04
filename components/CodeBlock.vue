@@ -10,7 +10,7 @@
           {{ languageTitle }}
         </li>
 
-        <li class="list-none">
+        <li class="requires-js list-none">
           <button class="mr-4" @click.prevent="toggleRendered">Highlight</button>
           <button class="mr-4" @click="copyToClipboard">Copy</button>
 

@@ -66,6 +66,10 @@ export default {
       { hid: "description", name: "description", content: pkg.description }
     ],
 
+    bodyAttrs: {
+      class: "no-js"
+    },
+
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
 
@@ -82,7 +86,11 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ["plugins/setup-store.js", "plugins/register-components.js"],
+  plugins: [
+    "plugins/setup-store.js",
+    "plugins/register-components.js",
+    { src: "plugins/check-js.js", mode: "client" }
+  ],
 
   /*
   ** Nuxt.js modules

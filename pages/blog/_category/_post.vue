@@ -3,7 +3,7 @@
     <header class="flex items-center px-4">
       <h1 class="normal-title flex-1">{{ title }}</h1>
 
-      <button class="button" @click.prevent="toggleRenderMode" v-text="showRenderText"/>
+      <button class="requires-js button" @click.prevent="toggleRenderMode" v-text="showRenderText"/>
     </header>
 
     <main class="blog-article">
