@@ -70,8 +70,6 @@ export default {
   },
 
   created() {
-    console.log("code-block", this.code, this.lang);
-
     this.rendered = highlight(this.lang, this.code, true).value;
     this.showRendered = true;
   },
