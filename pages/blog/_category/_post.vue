@@ -96,7 +96,3 @@ export default {
   layout: "blog"
 };
 </script>
-
-<style lang="scss">
-@import "~/assets/scss/blog.scss";
-</style>

@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import "~/assets/scss/blog.scss";
+
 import Logo from "~/components/layout/Logo.vue";
 import Navigation from "~/components/layout/Navigation.vue";
 
