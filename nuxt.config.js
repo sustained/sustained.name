@@ -58,7 +58,14 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    htmlAttrs: {
+      lang: "en",
+      dir: "ltr"
+    },
+
+    bodyAttrs: {
+      class: "no-js"
+    },
 
     meta: [
       { charset: "utf-8" },
@@ -66,15 +73,8 @@ export default {
       { hid: "description", name: "description", content: pkg.description }
     ],
 
-    metaInfo: {
-      htmlAttrs: {
-        lang: "en"
-      }
-    },
-
-    bodyAttrs: {
-      class: "no-js"
-    },
+    title: pkg.name,
+    titleTemplate: "%s - Baz",
 
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
