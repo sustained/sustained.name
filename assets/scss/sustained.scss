@@ -34,6 +34,16 @@ html {
   margin: 0;
 }
 
+.requires-js {
+  display: initial;
+}
+
+.no-js {
+  .requires-js {
+    display: none;
+  }
+}
+
 @import "./navigation.scss";
 @import "./containers.scss";
 @import "./headers.scss";

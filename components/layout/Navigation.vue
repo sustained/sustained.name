@@ -18,7 +18,7 @@
       </li>
 
       <li>
-        <nuxt-link class="router-link" to="/resume">Resume</nuxt-link>
+        <nuxt-link class="router-link" to="/resume">Résumé</nuxt-link>
       </li>
     </ul>
   </nav>
