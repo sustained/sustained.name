@@ -3,7 +3,7 @@
     <div>
       <h1 class="large-title">sustained.name</h1>
 
-      <h2 class="large-subtitle">My personal website.</h2>
+      <h2 class="large-subtitle">My (very WIP) personal website.</h2>
 
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button mr-4">Documentation</a>
