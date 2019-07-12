@@ -62,7 +62,7 @@
   }
 
   .table-of-contents {
-    & > ol {
+    & ol {
       counter-reset: section;
       list-style-type: none;
       @apply ml-2;
