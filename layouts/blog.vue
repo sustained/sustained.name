@@ -1,28 +1,23 @@
 <template>
   <div class="section-blog">
-    <header class="main">
-      <logo/>
-
-      <navigation/>
-    </header>
+    <Header />
 
     <main class="main">
       <div>
-        <nuxt/>
+        <nuxt />
       </div>
     </main>
 
-    <footer/>
+    <footer />
   </div>
 </template>
 
 <script>
 import "~/assets/scss/blog.scss";
 
-import Logo from "~/components/layout/Logo.vue";
-import Navigation from "~/components/layout/Navigation.vue";
+import Header from "~/components/layout/Header.vue";
 
 export default {
-  components: { Logo, Navigation }
+  components: { Header }
 };
 </script>

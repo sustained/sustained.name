@@ -1,5 +1,5 @@
 <template>
-  <div class="section-projects">
+  <div class="section-open-source">
     <Header />
 
     <main class="main">
