@@ -36,6 +36,10 @@
 
 <script>
 export default {
-  layout: "projects"
+  layout: "projects",
+
+  head: {
+    title: "Projects Listing"
+  }
 };
 </script>

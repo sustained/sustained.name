@@ -74,7 +74,7 @@ export default {
     ],
 
     title: pkg.name,
-    titleTemplate: "%s - Baz",
+    titleTemplate: "%s - sustained.name",
 
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },

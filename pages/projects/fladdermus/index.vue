@@ -44,6 +44,19 @@
 
 <script>
 export default {
-  layout: "projects"
+  layout: "projects",
+
+  head: {
+    title: "Fladdermus - Projects",
+
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Fladdermus is a Discord bot that integrates with Wiktionary, Ord.se, Duolingo and Memrise and provides useful things for language nerds."
+      }
+    ]
+  }
 };
 </script>

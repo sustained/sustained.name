@@ -34,6 +34,19 @@
 
 <script>
 export default {
-  layout: "projects"
+  layout: "projects",
+
+  head: {
+    title: "Trello - Projects",
+
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Cello is a Trello clone. A sort of kanban or task list app but on steroids. You can organise anything with it!"
+      }
+    ]
+  }
 };
 </script>

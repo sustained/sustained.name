@@ -36,6 +36,19 @@
 
 <script>
 export default {
-  layout: "projects"
+  layout: "projects",
+
+  head: {
+    title: "Sforzando - Projects",
+
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Sforzando is an interactive music theory and composition app. It will help you learn scales, chords, arpeggios etc. and to make music."
+      }
+    ]
+  }
 };
 </script>

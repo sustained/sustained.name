@@ -32,6 +32,18 @@
 
 <script>
 export default {
-  layout: "projects"
+  layout: "projects",
+
+  head: {
+    title: "Personal Website - Projects",
+
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: "sustained.name is my portfolio, résumé, blog and more!"
+      }
+    ]
+  }
 };
 </script>

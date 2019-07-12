@@ -34,6 +34,19 @@
 
 <script>
 export default {
-  layout: "projects"
+  layout: "projects",
+
+  head: {
+    title: "Ascension - Projects",
+
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Ascension is a Memrise clone - an app for learning languages via the scientifically proven spaced repetition technique."
+      }
+    ]
+  }
 };
 </script>

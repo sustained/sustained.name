@@ -45,6 +45,19 @@
 
 <script>
 export default {
-  layout: "projects"
+  layout: "projects",
+
+  head: {
+    title: "Motion.js - Projects",
+
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Motion.js was a JS game engine/library back when canvas was new and exciting, it's long since abandoned but open-source."
+      }
+    ]
+  }
 };
 </script>
