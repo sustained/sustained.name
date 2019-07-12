@@ -113,6 +113,21 @@ export default {
   },
 
   /*
+  **
+  */
+  purgeCSS: {
+    enabled: ({ isDev, isClient }) => true,
+
+    whitelist: [
+      "nuxt-link-active",
+      "nuxt-link-exact-active",
+      "header-anchor",
+      "emoji",
+      "table-of-contents"
+    ]
+  },
+
+  /*
   ** Build configuration
   */
   build: {
