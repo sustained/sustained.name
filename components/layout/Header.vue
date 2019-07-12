@@ -28,9 +28,28 @@ export default {
     };
   },
 
+  created() {
+    if (process.client) {
+      // eslint-disable-next-line
+      window.addEventListener("resize", this.onResize, { passive: true });
+    }
+  },
+
+  beforeDestroy() {
+    window.removeEventListener("resize", this.onResize);
+  },
+
   methods: {
     toggleNavigation() {
       this.isNavVisible = !this.isNavVisible;
+    },
+
+    onResize(event) {
+      if (this.isNavVisible === false) {
+        if (document.documentElement.clientWidth >= 580) {
+          this.isNavVisible = true;
+        }
+      }
     }
   }
 };
@@ -42,12 +61,12 @@ svg {
 }
 
 .slide-enter-active {
-  transition-duration: 0.3s;
+  transition-duration: 0.5s;
   transition-timing-function: ease-in;
 }
 
 .slide-leave-active {
-  transition-duration: 0.3s;
+  transition-duration: 0.5s;
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
 
