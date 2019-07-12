@@ -124,6 +124,11 @@ export default {
       "header-anchor",
       "emoji",
       "table-of-contents"
+    ],
+    whitelistPatternsChildren: [
+      /^blog-article/,
+      /^section-(home|blog|projects|portfolio|resume)/,
+      /^hljs/
     ]
   },
 
