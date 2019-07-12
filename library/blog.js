@@ -84,8 +84,8 @@ function createArticle(categoryDirName, articleFileName, categorySlug) {
   const metadata = loadFrontMatter(join(categoryDirName, articleFileName));
   const cleanFileName = articleFileName.replace(/.md$/, "");
 
-  let slug = categorySlug + "/";
-  slug += metadata.slug ? metadata.slug : toSlug(cleanFileName);
+  const articleSlug = metadata.slug ? metadata.slug : toSlug(cleanFileName);
+  const slug = categorySlug + "/" + articleSlug;
 
   const tags = metadata.tags ? metadata.tags : [];
   const title = metadata.title ? metadata.title : toTitle(cleanFileName);
@@ -95,6 +95,7 @@ function createArticle(categoryDirName, articleFileName, categorySlug) {
     title,
     excerpt,
     categorySlug,
+    articleSlug,
     slug: `${slug}`,
     path: `/blog/${slug}`
   };
