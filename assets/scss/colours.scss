@@ -33,7 +33,8 @@ li {
   h4,
   h5,
   h6,
-  .link {
+  .link,
+  .currentColour {
     @apply text-red-600;
   }
 
@@ -50,7 +51,8 @@ li {
   h4,
   h5,
   h6,
-  a.link {
+  a.link,
+  .currentColour {
     @apply text-blue-600;
   }
 
@@ -67,13 +69,24 @@ li {
   h4,
   h5,
   h6,
-  a.link {
+  a.link,
+  .currentColour {
     @apply text-green-600;
   }
 }
 
-.iamatest {
-  color: red;
+.section-open-source {
+  #logo,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a.link,
+  .currentColour {
+    @apply text-teal-600;
+  }
 }
 
 .section-portfolio {
@@ -84,7 +97,8 @@ li {
   h4,
   h5,
   h6,
-  a.link {
+  a.link,
+  .currentColour {
     @apply text-orange-600;
   }
 }
@@ -97,7 +111,8 @@ li {
   h4,
   h5,
   h6,
-  a.link {
+  a.link,
+  .currentColour {
     @apply text-purple-600;
   }
 }
@@ -110,7 +125,8 @@ li {
   h4,
   h5,
   h6,
-  a.link {
+  a.link,
+  .currentColour {
     @apply text-pink-600;
   }
 }
