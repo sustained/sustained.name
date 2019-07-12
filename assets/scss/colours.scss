@@ -15,7 +15,9 @@
 //   transition: color 2s;
 //   transition-delay: 0.1s;
 
-p {
+p,
+ul,
+li {
   @apply text-gray-300;
 }
 
