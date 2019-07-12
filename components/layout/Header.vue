@@ -10,7 +10,7 @@
     <logo />
 
     <transition name="slide">
-      <navigation v-show="isNavVisible" />
+      <navigation v-show="isNavVisible" @navigate="onNavigate" />
     </transition>
   </header>
 </template>
@@ -22,10 +22,14 @@ import Navigation from "~/components/layout/Navigation.vue";
 export default {
   components: { Logo, Navigation },
 
-  data() {
-    return {
-      isNavVisible: true
-    };
+  computed: {
+    isNavVisible() {
+      return this.$store.state.app.isNavVisible;
+    },
+
+    isMiniNav() {
+      return document.documentElement.clientWidth < 580;
+    }
   },
 
   created() {
@@ -40,14 +44,20 @@ export default {
   },
 
   methods: {
+    onNavigate() {
+      if (this.isMiniNav) {
+        this.$store.commit("app/setNavVisible", false);
+      }
+    },
+
     toggleNavigation() {
-      this.isNavVisible = !this.isNavVisible;
+      this.$store.commit("app/toggleNavVisible");
     },
 
     onResize(event) {
       if (this.isNavVisible === false) {
         if (document.documentElement.clientWidth >= 580) {
-          this.isNavVisible = true;
+          this.$store.commit("app/setNavVisible", true);
         }
       }
     }

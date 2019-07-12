@@ -1,9 +1,12 @@
 export const state = () => {
   return {
-    section: "home"
+    isNavVisible: true
   };
 };
 
 export const mutations = {
-  setSection: (state, payload) => (state.section = payload)
+  setNavVisible: (state, payload) => (state.isNavVisible = payload),
+
+  toggleNavVisible: (state, payload) =>
+    (state.isNavVisible = !state.isNavVisible)
 };

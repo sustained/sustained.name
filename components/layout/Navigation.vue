@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav @click.capture="onClick">
     <ul>
       <li>
         <nuxt-link class="router-link" to="/">Home</nuxt-link>
@@ -27,3 +27,13 @@
     </ul>
   </nav>
 </template>
+
+<script>
+export default {
+  methods: {
+    onClick() {
+      this.$emit("navigate");
+    }
+  }
+};
+</script>
