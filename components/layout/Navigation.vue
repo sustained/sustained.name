@@ -14,6 +14,10 @@
       </li>
 
       <li>
+        <nuxt-link class="router-link" to="/open-source">Open Source</nuxt-link>
+      </li>
+
+      <li>
         <nuxt-link class="router-link" to="/portfolio">Portfolio</nuxt-link>
       </li>
 
