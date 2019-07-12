@@ -3,8 +3,12 @@
     <header class="flex items-center px-4">
       <h1 class="normal-title flex-1">Welcome to my blog!</h1>
 
-      <button class="button mr-4 requires-js" @click.prevent="toggleCategories" v-text="showCategoriesText"/>
-      <button class="button requires-js" @click.prevent="toggleTags" v-text="showTagsText"/>
+      <button
+        class="button mr-4 requires-js"
+        @click.prevent="toggleCategories"
+        v-text="showCategoriesText"
+      />
+      <button class="button requires-js" @click.prevent="toggleTags" v-text="showTagsText" />
     </header>
 
     <main>
@@ -43,6 +47,19 @@
 
 <script>
 export default {
+  head: {
+    title: "Blog",
+
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "I blog about music composition, music, language learning, programming, web development, gaming, literature and more!"
+      }
+    ]
+  },
+
   data() {
     return {
       // showCategories: true,
