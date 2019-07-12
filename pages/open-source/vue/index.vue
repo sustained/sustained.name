@@ -28,7 +28,10 @@
       </ul>
 
       <p>
-        <nuxt-link to="/open-source" class="text-teal-600 text-bold underline">Back to Open Source</nuxt-link>
+        <nuxt-link
+          :to="localePath('open-source')"
+          class="text-teal-600 text-bold underline"
+        >Back to Open Source</nuxt-link>
       </p>
     </div>
   </section>

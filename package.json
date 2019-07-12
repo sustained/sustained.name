@@ -16,9 +16,11 @@
     "cross-env": "^5.2.0",
     "gray-matter": "^4.0.2",
     "markdown-it-container": "^2.0.0",
-    "nuxt": "^2.8.1"
+    "nuxt": "^2.8.1",
+    "nuxt-i18n": "^5.12.7"
   },
   "devDependencies": {
+    "@kazupon/vue-i18n-loader": "^0.3.0",
     "@nuxtjs/eslint-config": "^0.0.1",
     "babel-eslint": "^8.2.1",
     "eslint": "^5.16.0",

@@ -64,7 +64,7 @@ export default {
     },
 
     bodyAttrs: {
-      class: "no-js"
+      // class: "no-js"
     },
 
     meta: [
@@ -95,13 +95,14 @@ export default {
   plugins: [
     "plugins/setup-store.js",
     "plugins/register-components.js",
-    { src: "plugins/check-js.js", mode: "client" }
+    { src: "plugins/check-js.js", mode: "client" },
+    { src: "plugins/after-each.js", mode: "client" }
   ],
 
   /*
   ** Nuxt.js modules
   */
-  modules: ["nuxt-purgecss"],
+  modules: ["nuxt-purgecss", "nuxt-i18n"],
 
   /*
   ** Fonts
@@ -113,7 +114,7 @@ export default {
   },
 
   /*
-  **
+  ** purgeCSS
   */
   purgeCSS: {
     enabled: ({ isDev, isClient }) => true,
@@ -130,6 +131,22 @@ export default {
       /^section-(home|blog|projects|portfolio|resume)/,
       /^hljs/
     ]
+  },
+
+  /*
+  ** nuxt-i18n
+  */
+  i18n: {
+    defaultLocale: "en",
+    locales: [
+      { code: "en", iso: "en-GB", file: "en-GB.js", name: "English" },
+      { code: "sv", iso: "sv-SE", file: "sv-SE.js", name: "Svenska" },
+      { code: "de", iso: "de-DE", file: "de-DE.js", name: "Deutsch" }
+    ],
+    lazy: true,
+    langDir: "language/",
+    vueI18nLoader: true,
+    strategy: "prefix_except_default"
   },
 
   /*
@@ -170,13 +187,13 @@ export default {
 
     postcss: {
       plugins: {
-        tailwindcss: resolve(__dirname, "./tailwind.config.js"),
+        tailwindcss: resolve(__dirname, "./tailwind.config.js")
 
-        cssnano: {
-          preset: "default",
-          discardComments: { removeAll: true },
-          zIndex: false
-        }
+        // cssnano: {
+        //   preset: "default",
+        //   discardComments: { removeAll: true },
+        //   zIndex: false
+        // }
       },
 
       // Change the postcss-preset-env settings

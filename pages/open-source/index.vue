@@ -1,15 +1,15 @@
 <template>
   <section class="container">
     <div class="text-left">
-      <h1 class="large-title">Open Source</h1>
+      <h1 class="large-title">{{ $t("open-source") }}</h1>
 
       <ul class="list-disc list-outside">
         <li>
-          <nuxt-link to="/open-source/vue" class="link text-xl my-8">Vue.js</nuxt-link>
+          <nuxt-link :to="localePath('open-source-vue')" class="link text-xl my-8">Vue.js</nuxt-link>
         </li>
 
         <li>
-          <nuxt-link to="/open-source/cofh" class="link text-xl my-8">CoFH</nuxt-link>
+          <nuxt-link :to="localePath('open-source-cofh')" class="link text-xl my-8">CoFH</nuxt-link>
         </li>
 
         <li class="mt-4 list-none">More open source coming soon.</li>

@@ -24,7 +24,10 @@
       </p>
 
       <p>
-        <nuxt-link to="/projects" class="text-green-600 text-bold underline">Back to Projects</nuxt-link>
+        <nuxt-link
+          :to="localePath('projects')"
+          class="text-green-600 text-bold underline"
+        >Back to Projects</nuxt-link>
       </p>
     </div>
   </section>

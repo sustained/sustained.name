@@ -1,9 +1,9 @@
 <template>
   <section class="container">
     <div>
-      <h1 class="large-title">Résumé</h1>
+      <h1 class="large-title">{{ $t("resume") }}</h1>
 
-      <h2 class="large-subtitle">Coming soon.</h2>
+      <h2 class="large-subtitle">{{ $t("coming-soon") }}</h2>
     </div>
   </section>
 </template>

@@ -136,7 +136,9 @@ nav {
   ul {
     li {
       a {
-        &[href="/"] {
+        &[href="/"],
+        &[href="/sv"],
+        &[href="/de"] {
           @apply text-red-400;
 
           &.nuxt-link-exact-active {
@@ -144,7 +146,9 @@ nav {
           }
         }
 
-        &[href^="/blog"] {
+        &[href="/blog"],
+        &[href="/sv/blog"],
+        &[href="/de/blog"] {
           @apply text-blue-400;
 
           &.nuxt-link-active {
@@ -152,7 +156,9 @@ nav {
           }
         }
 
-        &[href^="/projects"] {
+        &[href^="/projects"],
+        &[href^="/sv/projects"],
+        &[href^="/de/projects"] {
           @apply text-green-400;
 
           &.nuxt-link-active {
@@ -160,7 +166,9 @@ nav {
           }
         }
 
-        &[href^="/open-source"] {
+        &[href^="/open-source"],
+        &[href^="/sv/open-source"],
+        &[href^="/de/open-source"] {
           @apply text-teal-400;
 
           &.nuxt-link-active {
@@ -168,7 +176,9 @@ nav {
           }
         }
 
-        &[href^="/portfolio"] {
+        &[href^="/portfolio"],
+        &[href^="/sv/portfolio"],
+        &[href^="/de/portfolio"] {
           @apply text-orange-400;
 
           &.nuxt-link-active {
@@ -176,7 +186,9 @@ nav {
           }
         }
 
-        &[href^="/resume"] {
+        &[href^="/resume"],
+        &[href^="/sv/resume"],
+        &[href^="/de/resume"] {
           @apply text-purple-400;
 
           &.nuxt-link-active {
@@ -184,7 +196,9 @@ nav {
           }
         }
 
-        &[href^="/hire-me"] {
+        &[href^="/hire-me"],
+        &[href^="/sv/hire-me"],
+        &[href^="/de/hire-me"] {
           @apply text-pink-400;
 
           &.nuxt-link-active {

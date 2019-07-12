@@ -1,20 +1,47 @@
+<i18n>
+{
+  "en": {
+    "subtitle": "My unfinished personal website."
+  },
+  "sv": {
+    "subtitle": "Min oavslutade personliga webbsida."
+  },
+  "de": {
+    "subtitle": "Meine unvollendete persönliche Webseite"
+  }
+}
+</i18n>
+
 <template>
   <section class="container">
     <div>
       <h1 class="large-title">sustained.name</h1>
 
-      <h2 class="large-subtitle">My (very WIP) personal website.</h2>
+      <h2 class="large-subtitle" v-text="$t('subtitle')" />
 
       <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" rel="noopener" class="button mr-4">Documentation</a>
-        <a href="https://github.com/sustained/sustained.name" rel="noopener" target="_blank" class="button">GitHub</a>
+        <nuxt-link
+          v-for="locale in availableLocales"
+          :key="locale.code"
+          :to="switchLocalePath(locale.code)"
+          class="button mr-4"
+        >{{ locale.name }}</nuxt-link>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    availableLocales() {
+      // WORKAROUND: https://github.com/nuxt-community/nuxt-i18n/issues/205
+      return this.$root.$i18n.locales.filter(
+        lang => lang.code !== this.$i18n.locale
+      );
+    }
+  }
+};
 </script>
 
 <style>
