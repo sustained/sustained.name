@@ -146,7 +146,10 @@ export default {
     lazy: true,
     langDir: "language/",
     vueI18nLoader: true,
-    strategy: "prefix_except_default"
+    strategy: "prefix_except_default",
+    vueI18n: {
+      fallbackLocale: "en"
+    }
   },
 
   /*
