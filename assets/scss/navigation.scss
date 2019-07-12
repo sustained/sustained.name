@@ -1,73 +1,89 @@
+a#nav-expand {
+  margin-top: 6px;
+}
+
 header.main {
   min-height: 80px;
-  background: #36393f;
+
+  background-color: #36393f;
+
+  position: relative;
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  // #logo {
-  //   transition: color 2s;
-  // }
-
-  nav ul,
-  nav ul li a {
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-  }
+  justify-content: center;
 
   nav {
+    &.hidden {
+      display: none;
+    }
+
+    background: #36393f;
+
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+
     ul {
+      padding-top: 10px;
+
+      display: flex;
+      flex-direction: column;
+
       li {
+        min-height: 2.5rem;
+
         a {
-          @apply border-b-2 border-solid font-bold border-transparent px-6;
+          display: flex;
+          justify-content: center;
+          @apply border-l-2 border-solid font-bold border-transparent p-2;
+        }
+      }
+    }
+  }
+}
 
-          &[href="/"] {
-            @apply text-red-400;
+@media (min-width: 580px) {
+  a#nav-expand {
+    display: none;
+  }
 
-            &.nuxt-link-exact-active {
-              @apply border-red-400;
-            }
-          }
+  header.main {
+    display: flex;
+    flex-wrap: row;
+    flex-direction: column;
 
-          &[href^="/blog"] {
-            @apply text-blue-400;
+    div#logo {
+      flex: 1;
+      @apply my-2;
+    }
 
-            &.nuxt-link-active {
-              @apply border-blue-400;
-            }
-          }
+    nav {
+      &.hidden {
+        display: block;
+      }
 
-          &[href^="/projects"] {
-            @apply text-green-400;
+      position: unset;
+      top: unset;
+      left: unset;
+      right: unset;
 
-            &.nuxt-link-active {
-              @apply border-green-400;
-            }
-          }
+      width: 100%;
 
-          &[href^="/portfolio"] {
-            @apply text-orange-400;
+      background: #36393f;
 
-            &.nuxt-link-active {
-              @apply border-orange-400;
-            }
-          }
+      ul {
+        flex-direction: row;
+        justify-content: space-around;
 
-          &[href^="/resume"] {
-            @apply text-purple-400;
+        li {
+          min-height: 0;
 
-            &.nuxt-link-active {
-              @apply border-purple-400;
-            }
-          }
-
-          &[href^="/hire-me"] {
-            @apply text-pink-400;
-
-            &.nuxt-link-active {
-              @apply border-pink-400;
-            }
+          a {
+            display: flex;
+            align-items: center;
+            @apply border-l-0 border-b-2 border-solid font-bold border-transparent p-2;
           }
         }
       }
@@ -75,6 +91,107 @@ header.main {
   }
 }
 
+@media (min-width: 1024px) {
+  header.main {
+    min-height: 80px;
+
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    div#logo {
+      flex: 1;
+    }
+
+    nav {
+      flex: 0;
+    }
+
+    nav ul,
+    nav ul li a {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      @apply border-b-2 border-solid font-bold border-transparent px-2;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  header.main {
+    flex-wrap: nowrap;
+
+    nav ul li a {
+      @apply px-6;
+    }
+  }
+}
+
 #logo {
   margin-left: 1rem;
+}
+
+nav {
+  ul {
+    li {
+      a {
+        &[href="/"] {
+          @apply text-red-400;
+
+          &.nuxt-link-exact-active {
+            @apply border-red-400;
+          }
+        }
+
+        &[href^="/blog"] {
+          @apply text-blue-400;
+
+          &.nuxt-link-active {
+            @apply border-blue-400;
+          }
+        }
+
+        &[href^="/projects"] {
+          @apply text-green-400;
+
+          &.nuxt-link-active {
+            @apply border-green-400;
+          }
+        }
+
+        &[href^="/open-source"] {
+          @apply text-teal-400;
+
+          &.nuxt-link-active {
+            @apply border-teal-400;
+          }
+        }
+
+        &[href^="/portfolio"] {
+          @apply text-orange-400;
+
+          &.nuxt-link-active {
+            @apply border-orange-400;
+          }
+        }
+
+        &[href^="/resume"] {
+          @apply text-purple-400;
+
+          &.nuxt-link-active {
+            @apply border-purple-400;
+          }
+        }
+
+        &[href^="/hire-me"] {
+          @apply text-pink-400;
+
+          &.nuxt-link-active {
+            @apply border-pink-400;
+          }
+        }
+      }
+    }
+  }
 }
