@@ -4,10 +4,12 @@
   @apply text-gray-300 text-xl;
 
   .dynamicMarkdown {
-    & > ul,
-    & > ol {
+    & > ul {
       @apply ml-8;
+    }
 
+    & > ol,
+    & > ul {
       li {
         @apply my-2;
       }
@@ -37,16 +39,12 @@
     list-style-type: disc;
 
     &.contains-task-list {
-      list-style-type: none;
+      list-style-type: none !important;
 
       input {
         @apply mr-2;
       }
     }
-  }
-
-  ol {
-    list-style-type: decimal;
   }
 
   a {
@@ -64,19 +62,19 @@
   }
 
   .table-of-contents {
-    ol {
-      counter-reset: list-item;
-      @apply ml-8;
-    }
+    & > ol {
+      counter-reset: section;
+      list-style-type: none;
+      @apply ml-2;
 
-    li {
-      display: block;
-      @apply my-2;
-      counter-increment: list-item;
-    }
+      li {
+        @apply my-2;
 
-    li:before {
-      content: counters(list-item, ".") " ";
+        &::before {
+          counter-increment: section;
+          content: counters(section, ".") ". ";
+        }
+      }
     }
   }
 
