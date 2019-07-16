@@ -1,10 +1,12 @@
-import { existsSync, mkdirSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { join, resolve } from "path";
 import pkg from "./package";
 import markdown from "./library/markdown";
 import { tags, articles, categories } from "./library/blog";
 
-export default {
+const IS_DEV = process.env.NODE_ENV.startsWith("dev");
+
+const config = {
   mode: "universal",
 
   generate: {
@@ -211,3 +213,18 @@ export default {
     }
   }
 };
+
+if (IS_DEV) {
+  config.server = {
+    // Vue CLI doesn't mind but Nuxt requires 0.0.0.0 instead of localhost. ¯\_(ツ)_/¯
+    host: "0.0.0.0",
+    port: 8001,
+    https: {
+      ca: readFileSync("/ca/devilbox-ca.srl"),
+      key: readFileSync("/ca/devilbox-ca.key"),
+      cert: readFileSync("/ca/devilbox-ca.crt")
+    }
+  };
+}
+
+export default config;
