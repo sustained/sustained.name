@@ -1,15 +1,25 @@
 vhost: |
   server {
-    listen       __PORT____HTTP_PROTO____DEFAULT_VHOST__;
-    server_name  __VHOST_NAME__;
+    listen      __PORT____HTTP_PROTO____DEFAULT_VHOST__;
+    server_name __VHOST_NAME__;
 
-    access_log   "__ACCESS_LOG__" combined;
-    error_log    "__ERROR_LOG__" warn;
+    gzip            on;
+    gzip_types      text/plain application/xml text/css application/javascript;
+    gzip_min_length 1000;
+
+    error_log  "__ERROR_LOG__"  warn;
+    access_log "__ACCESS_LOG__" combined;
 
     location / {
-      proxy_set_header Host $host;
-      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header Host              $host;
+      proxy_set_header X-Real-IP         $remote_addr;
+      proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto $scheme;
+
       proxy_pass https://php:8001;
+
+      proxy_set_header Upgrade    $http_upgrade;
+      proxy_set_header Connection "Upgrade";
     }
 
     __REDIRECT__
@@ -26,40 +36,41 @@ vhost_type:
 
 features:
   ssl: |
+    ssl_ciphers               __SSL_CIPHERS__;
+    ssl_protocols             __SSL_PROTOCOLS__;
     ssl_certificate           __SSL_PATH_CRT__;
     ssl_certificate_key       __SSL_PATH_KEY__;
-    ssl_protocols             __SSL_PROTOCOLS__;
     ssl_prefer_server_ciphers __SSL_HONOR_CIPHER_ORDER__;
-    ssl_ciphers               __SSL_CIPHERS__;
 
   redirect: |
-    return 301 http://__VHOST_NAME__:__SSL_PORT__$request_uri;
+    return 301 https://__VHOST_NAME__:__SSL_PORT__$request_uri;
 
   php_fpm: ""
 
   alias: |
     location ~ __ALIAS__ {
-        root  __PATH__;
-    __XDOMAIN_REQ__
+      root  __PATH__;
+      __XDOMAIN_REQ__
     }
 
   deny: |
     location ~ __REGEX__ {
-        deny all;
+      deny all;
     }
 
   server_status: |
     location ~ __REGEX__ {
-        stub_status on;
-        access_log off;
+      stub_status on;
+      access_log off;
     }
 
   xdomain_request: |
     if ( $http_origin ~* (__REGEX__) ) {
-        add_header "Access-Control-Allow-Origin" "$http_origin";
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
-        add_header 'Access-Control-Expose-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
-        add_header 'Access-Control-Max-Age' 0;
-        return 200;
+      add_header 'Access-Control-Allow-Origin'   "$http_origin";
+      add_header 'Access-Control-Allow-Methods'  'GET, POST, OPTIONS';
+      add_header 'Access-Control-Allow-Headers'  'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
+      add_header 'Access-Control-Expose-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
+      add_header 'Access-Control-Max-Age'        0;
+
+      return 200;
     }
