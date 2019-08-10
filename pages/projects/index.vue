@@ -24,6 +24,13 @@
 
         <li>
           <nuxt-link
+            :to="localePath('projects-coffeescript-sublime-plugin')"
+            class="text-green-600 text-xl my-8"
+          >CoffeeScript-Sublime-Plugin</nuxt-link>
+        </li>
+
+        <li>
+          <nuxt-link
             :to="localePath('projects-motion')"
             class="text-green-600 text-xl my-8"
           >Motion.js</nuxt-link>
