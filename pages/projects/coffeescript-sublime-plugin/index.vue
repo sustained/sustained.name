@@ -9,11 +9,17 @@
         class="mb-4"
       >CoffeeScript-Sublime-Plugin does pretty much exactly what it says on the tin. A long time ago, before VS Code even existed, Sublime Text was my editor of choice.</p>
 
-      <p>CoffeeScript was also rather popular at the time and I was one of many who had made the switch.</p>
+      <p
+        class="mb-4"
+      >CoffeeScript was also rather popular at the time and I was one of many who had made the switch.</p>
 
-      <p>But there was no plugin for CoffeeScript at the time, so I decided to try and make one.</p>
+      <p
+        class="mb-4"
+      >But there was no plugin for CoffeeScript at the time, so I decided to try and make one.</p>
 
-      <p>It actually got quite popular. It's probably the most popular project I ever created, in fact.</p>
+      <p
+        class="mb-4"
+      >It actually got quite popular. It's probably the most popular project I ever created, in fact.</p>
 
       <p
         class="mb-4"
