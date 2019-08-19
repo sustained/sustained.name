@@ -17,7 +17,10 @@
     "gray-matter": "^4.0.2",
     "markdown-it-container": "^2.0.0",
     "nuxt": "^2.8.1",
-    "nuxt-i18n": "^5.12.7"
+    "nuxt-i18n": "^5.12.7",
+    "simplex-noise": "^2.4.0",
+    "three": "^0.106.2",
+    "three-orbitcontrols": "^2.102.2"
   },
   "devDependencies": {
     "@kazupon/vue-i18n-loader": "^0.3.0",
