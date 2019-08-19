@@ -9,11 +9,20 @@ const IS_DEV = process.env.NODE_ENV.startsWith("dev");
 const config = {
   mode: "universal",
 
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: IS_DEV
+    }
+  },
+
   generate: {
     routes() {
       const tagRoutes = tags.map(tag => tag.path);
       const articleRoutes = articles.map(article => article.path);
       const categoryRoutes = categories.map(category => category.path);
+
+      console.log(tagRoutes);
 
       return ["404", ...tagRoutes, ...articleRoutes, ...categoryRoutes];
     }
