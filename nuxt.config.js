@@ -188,6 +188,12 @@ const config = {
           }
         }
       });
+
+      config.module.rules.push({
+        test: /\.ya?ml$/,
+        include: resolve(__dirname, "contents"),
+        loader: "js-yaml-loader"
+      });
     },
 
     postcss: {
