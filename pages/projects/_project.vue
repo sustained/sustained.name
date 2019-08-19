@@ -9,13 +9,8 @@
 </template>
 
 <script>
-import DynamicMarkdown from "~/components/DynamicMarkdown.vue";
-import loadDynamicMarkdown from "~/library/dynamic-markdown";
-
 export default {
   layout: "project",
-
-  components: { DynamicMarkdown },
 
   head() {
     return {
@@ -59,12 +54,12 @@ export default {
     }
   },
 
-  async asyncData({ store, params, error }) {
+  async asyncData({ app, store, params, error }) {
     if (!store.getters["app/isValidProject"](params.project)) {
       error({ statusCode: 404, message: "That project does not exist!" });
     }
 
-    const dynamicMarkdown = await loadDynamicMarkdown(
+    const dynamicMarkdown = await app.loadMarkdown(
       `projects/${params.project}/content.md`
     );
 

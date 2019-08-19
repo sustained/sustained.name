@@ -19,14 +19,9 @@
 </template>
 
 <script>
-import DynamicMarkdown from "~/components/DynamicMarkdown.vue";
-import loadDynamicMarkdown from "~/library/dynamic-markdown";
-
 import { stringify } from "gray-matter";
 
 export default {
-  components: { DynamicMarkdown },
-
   data() {
     return {
       renderMode: "html"
@@ -50,9 +45,9 @@ export default {
     }
   },
 
-  async asyncData({ params, error }) {
+  async asyncData({ params, error, app }) {
     try {
-      const article = await loadDynamicMarkdown(
+      const article = await app.loadMarkdown(
         `blog/posts/${params.category}/${params.post}.md`
       );
 
