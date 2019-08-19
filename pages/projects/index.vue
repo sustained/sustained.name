@@ -4,50 +4,11 @@
       <h1 class="large-title">{{ $t("projects") }}</h1>
 
       <ul class="list-disc list-outside">
-        <li>
+        <li v-for="(project, projectName) of projects" :key="projectName">
           <nuxt-link
-            :to="localePath('projects-ascension')"
+            :to="localePath({ name: 'projects-project', params: { project: projectName }})"
             class="text-green-600 text-xl my-8"
-          >Ascension</nuxt-link>
-        </li>
-
-        <li>
-          <nuxt-link :to="localePath('projects-cello')" class="text-green-600 text-xl my-8">Cello</nuxt-link>
-        </li>
-
-        <li>
-          <nuxt-link
-            :to="localePath('projects-fladdermus')"
-            class="text-green-600 text-xl my-8"
-          >Fladdermus</nuxt-link>
-        </li>
-
-        <li>
-          <nuxt-link
-            :to="localePath('projects-coffeescript-sublime-plugin')"
-            class="text-green-600 text-xl my-8"
-          >CoffeeScript-Sublime-Plugin</nuxt-link>
-        </li>
-
-        <li>
-          <nuxt-link
-            :to="localePath('projects-motion')"
-            class="text-green-600 text-xl my-8"
-          >Motion.js</nuxt-link>
-        </li>
-
-        <li>
-          <nuxt-link
-            :to="localePath('projects-sforzando')"
-            class="text-green-600 text-xl my-8"
-          >Sforzando</nuxt-link>
-        </li>
-
-        <li>
-          <nuxt-link
-            :to="localePath('projects-website')"
-            class="text-green-600 text-xl my-8"
-          >sustained.name</nuxt-link>
+          >{{ project.name }}</nuxt-link>
         </li>
 
         <li class="mt-4 list-none">More projects coming soon.</li>
@@ -62,6 +23,12 @@ export default {
 
   head: {
     title: "Projects Listing"
+  },
+
+  computed: {
+    projects() {
+      return this.$store.state.app.projects;
+    }
   }
 };
 </script>
