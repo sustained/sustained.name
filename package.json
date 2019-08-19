@@ -4,6 +4,10 @@
   "description": "My personal website.",
   "author": "sustained",
   "private": true,
+  "engines": {
+    "node": ">=10.16.0"
+  },
+  "engineStrict": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
