@@ -1,5 +1,7 @@
 <template>
   <section class="container-fixed pt-4">
+    <DynamicMarkdown v-bind="dynamicMarkdown" />
+
     <pre>
       {{ project }}
     </pre>
@@ -7,12 +9,13 @@
 </template>
 
 <script>
+import DynamicMarkdown from "~/components/DynamicMarkdown.vue";
+import loadDynamicMarkdown from "~/library/dynamic-markdown";
+
 export default {
   layout: "project",
 
-  data() {
-    return {};
-  },
+  components: { DynamicMarkdown },
 
   head() {
     return {
@@ -56,12 +59,16 @@ export default {
     }
   },
 
-  asyncData({ store, params, error }) {
+  async asyncData({ store, params, error }) {
     if (!store.getters["app/isValidProject"](params.project)) {
       error({ statusCode: 404, message: "That project does not exist!" });
     }
 
-    return {};
+    const dynamicMarkdown = await loadDynamicMarkdown(
+      `projects/${params.project}/content.md`
+    );
+
+    return { dynamicMarkdown };
   }
 };
 </script>
