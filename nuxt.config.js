@@ -96,6 +96,7 @@ const config = {
   */
   plugins: [
     "plugins/setup-store.js",
+    { src: "plugins/load-project-metadata.js", mode: "server" },
     "plugins/register-components.js",
     { src: "plugins/check-js.js", mode: "client" },
     { src: "plugins/after-each.js", mode: "client" }
