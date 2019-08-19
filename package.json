@@ -13,7 +13,10 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.0",
+    "auth0-js": "^9.11.3",
     "cross-env": "^5.2.0",
+    "dotenv": "^8.0.0",
     "gray-matter": "^4.0.2",
     "markdown-it-container": "^2.0.0",
     "nuxt": "^2.8.1",

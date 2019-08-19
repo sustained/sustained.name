@@ -78,7 +78,9 @@ const config = {
     title: pkg.name,
     titleTemplate: "%s - sustained.name",
 
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+
+    script: [{ src: "node_modules/auth0-js/build/auth0.js" }]
   },
 
   /*
@@ -104,7 +106,7 @@ const config = {
   /*
   ** Nuxt.js modules
   */
-  modules: ["nuxt-purgecss", "nuxt-i18n"],
+  modules: ["nuxt-purgecss", "nuxt-i18n", "@nuxtjs/dotenv"],
 
   /*
   ** Fonts
@@ -119,7 +121,7 @@ const config = {
   ** purgeCSS
   */
   purgeCSS: {
-    enabled: ({ isDev, isClient }) => true,
+    enabled: ({ isDev, isClient }) => false,
 
     whitelist: [
       "nuxt-link-active",
