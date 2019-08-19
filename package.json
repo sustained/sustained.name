@@ -15,6 +15,7 @@
   "dependencies": {
     "cross-env": "^5.2.0",
     "gray-matter": "^4.0.2",
+    "js-yaml-loader": "^1.2.2",
     "markdown-it-container": "^2.0.0",
     "nuxt": "^2.8.1",
     "nuxt-i18n": "^5.12.7"
