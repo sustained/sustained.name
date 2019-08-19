@@ -4,8 +4,8 @@ export const state = () => {
     articles: [],
     categories: [],
 
-    showCategories: false,
-    showTags: false
+    showCategories: true,
+    showTags: true
   };
 };
 

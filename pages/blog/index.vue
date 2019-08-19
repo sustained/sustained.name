@@ -36,8 +36,8 @@
       <button class="button requires-js" @click.prevent="toggleTags" v-text="showTagsText" />
     </header>
 
-    <main>
-      <div v-show="showCategories" class="card">
+    <main id="blog">
+      <div v-show="showCategories" id="categories" class="card">
         <h2 class="normal-title block p-4 text-center">{{ $t("categories") }}</h2>
 
         <ul class="flex w-full flex-wrap items-center justify-center text-center">
@@ -50,7 +50,7 @@
         </ul>
       </div>
 
-      <div v-show="showTags" class="card">
+      <div v-show="showTags" id="tags" class="card">
         <h2 class="normal-title block p-4 text-center">{{ $t("tags") }}</h2>
 
         <ul class="flex w-full flex-wrap items-center justify-center text-center">
@@ -63,7 +63,7 @@
         </ul>
       </div>
 
-      <div class="card">
+      <div id="articles" class="card">
         <h2 class="normal-title block p-4 text-center">{{ $t("articles") }}</h2>
 
         <ul class>
@@ -146,3 +146,50 @@ export default {
   }
 };
 </script>
+
+<style>
+#blog {
+  display: grid;
+  grid-template:
+    "tags"
+    "categories"
+    "articles";
+  grid-gap: 1em;
+  margin: 1em;
+}
+
+.card {
+  margin: unset;
+}
+
+#tags {
+  grid-area: tags;
+}
+
+#articles {
+  grid-area: articles;
+}
+
+#cateogires: {
+  grid-area: categories;
+}
+
+@media (min-width: 640px) {
+  #blog {
+    display: grid;
+    grid-template:
+      "tags articles"
+      "categories articles"
+      ". articles";
+    grid-template-columns: 1fr 4fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  #blog {
+    display: grid;
+    grid-template: "tags articles categories";
+    grid-template-columns: minmax(300px, 1fr) 6fr minmax(300px, 1fr);
+  }
+}
+</style>
