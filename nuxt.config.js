@@ -1,67 +1,19 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
-import { join, resolve } from "path";
+import { readFileSync } from "fs";
+import { resolve } from "path";
 import pkg from "./package";
-import markdown from "./library/markdown";
-import { tags, articles, categories } from "./library/blog";
 
 const IS_DEV = process.env.NODE_ENV.startsWith("dev");
 
 const config = {
   mode: "universal",
 
+  /**
+   * Configure Vue devtools.
+   */
   vue: {
     config: {
       productionTip: false,
       devtools: IS_DEV
-    }
-  },
-
-  generate: {
-    routes() {
-      const tagRoutes = tags.map(tag => tag.path);
-      const articleRoutes = articles.map(article => article.path);
-      const categoryRoutes = categories.map(category => category.path);
-
-      console.log(tagRoutes);
-
-      return ["404", ...tagRoutes, ...articleRoutes, ...categoryRoutes];
-    }
-  },
-
-  hooks: {
-    build: {
-      before(builder) {
-        try {
-          const JSON_DIR = resolve(
-            builder.nuxt.options.srcDir,
-            "static",
-            "json"
-          );
-
-          console.log("JSON directory is " + JSON_DIR);
-
-          if (!existsSync(JSON_DIR)) mkdirSync(JSON_DIR);
-
-          writeFileSync(join(JSON_DIR, "tags.json"), JSON.stringify(tags));
-
-          writeFileSync(
-            join(JSON_DIR, "articles.json"),
-            JSON.stringify(articles)
-          );
-
-          writeFileSync(
-            join(JSON_DIR, "categories.json"),
-            JSON.stringify(categories)
-          );
-
-          console.log("Successfully wrote the blog JSON files.");
-        } catch (e) {
-          console.error(
-            "A problem occured while writing the blog JSON files.",
-            e
-          );
-        }
-      }
     }
   },
 
@@ -104,9 +56,6 @@ const config = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    "plugins/setup-store.js",
-    "plugins/dynamic-markdown.js",
-    { src: "plugins/load-project-metadata.js", mode: "server" },
     "plugins/register-components.js",
     { src: "plugins/check-js.js", mode: "client" },
     { src: "plugins/after-each.js", mode: "client" }
@@ -115,7 +64,30 @@ const config = {
   /*
   ** Nuxt.js modules
   */
-  modules: ["nuxt-purgecss", "nuxt-i18n"],
+  modules: [
+    "nuxt-purgecss",
+    "nuxt-i18n",
+    [
+      "~/modules/dynamic-markdown",
+      {
+        sources: [
+          {
+            nested: true,
+            name: ["category", "article"],
+            directory: "blog/posts",
+            relationships: ["tags"]
+          },
+
+          {
+            nested: false,
+            name: "projects",
+            directory: "projects",
+            relationships: ["keywords", "languages", "technologies"]
+          }
+        ]
+      }
+    ]
+  ],
 
   /*
   ** Fonts
@@ -184,27 +156,6 @@ const config = {
           exclude: /(node_modules)/
         });
       }
-
-      config.module.rules.push({
-        test: /\.md$/,
-        loader: "frontmatter-markdown-loader",
-        include: resolve(__dirname, "contents"),
-        options: {
-          vue: {
-            root: "dynamicMarkdown"
-          },
-
-          markdown: body => {
-            return markdown.render(body);
-          }
-        }
-      });
-
-      config.module.rules.push({
-        test: /\.ya?ml$/,
-        include: resolve(__dirname, "contents"),
-        loader: "js-yaml-loader"
-      });
     },
 
     postcss: {
