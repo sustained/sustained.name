@@ -30,32 +30,14 @@ export default {
     project() {
       const projectName = this.$route.params.project;
 
-      let project;
-      try {
-        project = this.$store.state.app.projects[projectName];
-
-        if (project.__error) {
-          throw new Error(project.__error);
-        }
-      } catch (e) {
-        project = {
-          name: projectName.substr(0, 1).toUpperCase() + projectName.substr(1),
-          description: `The project page for ${projectName}.`,
-          keywords: [projectName, "project"],
-          license: null,
-          repository: null,
-          languages: [],
-          technologies: [],
-          screenshots: []
-        };
-      }
-
-      return project;
+      return this.$store.state["dynamic-markdown"].projects[projectName];
     }
   },
 
   async asyncData({ app, store, params, error }) {
-    if (!store.getters["app/isValidProject"](params.project)) {
+    const project = store.getters["dynamic-markdown/projects"](params.project);
+
+    if (!project) {
       error({ statusCode: 404, message: "That project does not exist!" });
     }
 
