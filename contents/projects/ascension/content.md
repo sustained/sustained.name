@@ -1,3 +1,31 @@
+---
+name: Ascension
+description: Ascension is a tool to help you learn words/phrases using the spaced repetition technique.
+type: project
+status:
+  tag: ongoing
+  description: I'm currently thinking about how the database schema and API layer should look and work.
+keywords:
+  [
+    srs,
+    spaced,
+    repetition,
+    language,
+    learning,
+    flashcard,
+    memrise,
+    duolingo,
+    quizlet,
+    clone,
+  ]
+license: MIT
+repository: https://github.com/sustained/ascension
+languages: [javascript, php]
+technologies:
+  [laravel, sass, tailwind, vue, vue-i18n, vue-router, vuex, vuex-persist]
+screenshots: []
+---
+
 ## What is Ascension?
 
 Ascenson is a Memrise clone. It's currently in the early planning/prototyping phase.

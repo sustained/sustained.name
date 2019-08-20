@@ -1,3 +1,4 @@
+---
 name: CoffeeScript-Sublime-Plugin
 description: CoffeeScript-Sublime-Plugin was a plugin for the Sublime Text editor, written in Python, that provided some useful features for CoffeeScript developers.
 type: project
@@ -24,3 +25,4 @@ repository: repository
 languages: [python]
 technologies: []
 screenshots: []
+---

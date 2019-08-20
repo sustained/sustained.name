@@ -1,3 +1,4 @@
+---
 name: sustained.name
 description: sustained.name is my blog, portfolio, résumé etc. where I write about technology, music, gaming; share experiments, projects, open-source work etc.
 type: project
@@ -36,3 +37,4 @@ technologies:
     tailwindcss,
   ]
 screenshots: []
+---

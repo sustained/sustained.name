@@ -1,3 +1,4 @@
+---
 name: Voxels
 description: Description
 type: playground
@@ -24,3 +25,4 @@ repository: https://github.com/sustained/sustained.name
 languages: [javascript]
 technologies: [three.js, three.js-orbitcontrols, simplex-noise]
 screenshots: []
+---

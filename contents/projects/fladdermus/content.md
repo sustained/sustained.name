@@ -1,3 +1,4 @@
+---
 name: Fladdermus
 description: Fladdermus is a Discord bot that integrates with Wiktionary, Ord.se, Duolingo and Memrise and provides useful things for language nerds.
 type: project
@@ -20,3 +21,4 @@ repository: private
 languages: [javascript, typescript]
 technologies: [discord.js, discord.js-commando, postgresql, redis]
 screenshots: []
+---

@@ -1,3 +1,4 @@
+---
 name: Sforzando
 description: Sforzando is an interactive music theory and composition app. It will help you learn scales, chords, arpeggios etc. and to make music.
 type: project
@@ -28,3 +29,4 @@ repository: https://github.com/sustained/sforzando
 languages: [javascript]
 technologies: [vue, vuex, vue-router, "@vue/cli", sass, tone.js]
 screenshots: []
+---

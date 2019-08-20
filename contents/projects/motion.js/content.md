@@ -1,3 +1,4 @@
+---
 name: Motion.js
 description: Motion.js was a JS game engine/library back when canvas was new and exciting, it's long since abandoned but open-source.
 type: project
@@ -22,3 +23,4 @@ repository: https://github.com/sustained/MotionJS-pre-release
 languages: [coffeescript]
 technologies: [jquery, requirejs, underscore, socket.io, canvas]
 screenshots: []
+---
