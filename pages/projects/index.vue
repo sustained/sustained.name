@@ -13,6 +13,18 @@
 
         <li class="mt-4 list-none">More projects coming soon.</li>
       </ul>
+
+      <h2 class="large-title">Languages</h2>
+
+      <p>
+        <nuxt-link :to="localePath({ name: 'projects-languages' })">View languages.</nuxt-link>
+      </p>
+
+      <h2 class="large-title">Technologies</h2>
+
+      <p>
+        <nuxt-link :to="localePath({ name: 'projects-technologies' })">View technologies.</nuxt-link>
+      </p>
     </div>
   </section>
 </template>
@@ -27,7 +39,7 @@ export default {
 
   computed: {
     projects() {
-      return this.$store.state.app.projects;
+      return this.$store.state["dynamic-markdown"].projects;
     }
   }
 };
