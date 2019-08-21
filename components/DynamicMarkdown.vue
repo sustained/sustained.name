@@ -3,7 +3,29 @@ import Vue from "vue";
 
 export default {
   // eslint-disable-next-line
-  props: ["renderFunction", "staticRenderFunctions", "componentList"],
+  props: {
+    renderFunction: {
+      type: String,
+
+      default() {
+        return "return function render() {};";
+      }
+    },
+    staticRenderFunctions: {
+      type: String,
+
+      default() {
+        return "return [];";
+      }
+    },
+    componentList: {
+      type: Array,
+
+      default() {
+        return [];
+      }
+    }
+  },
 
   beforeDestroy() {
     this.unregisterComponents();
