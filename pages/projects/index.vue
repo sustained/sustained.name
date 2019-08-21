@@ -30,17 +30,10 @@
 </template>
 
 <script>
+import { getEntities } from "~/modules/dynamic-markdown-mixin";
+
 export default {
   layout: "projects",
-
-  head: {
-    title: "Projects Listing"
-  },
-
-  computed: {
-    projects() {
-      return this.$store.state["dynamic-markdown"].projects;
-    }
-  }
+  asyncData: getEntities("projects")
 };
 </script>
