@@ -1,8 +1,10 @@
-import { readFileSync } from "fs";
+import { readFileSync, existsSync } from "fs";
 import { resolve } from "path";
 import pkg from "./package";
 
 const IS_DEV = process.env.NODE_ENV.startsWith("dev");
+const IS_DEVILBOX =
+  existsSync(resolve(__dirname, ".devilbox")) && existsSync(resolve, "/", "ca");
 
 const config = {
   mode: "universal",
@@ -182,7 +184,7 @@ const config = {
   }
 };
 
-if (IS_DEV) {
+if (IS_DEV && IS_DEVILBOX) {
   config.server = {
     // Vue CLI doesn't mind but Nuxt requires 0.0.0.0 instead of localhost. ¯\_(ツ)_/¯
     host: "0.0.0.0",
