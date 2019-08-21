@@ -23,7 +23,8 @@
     "js-yaml-loader": "^1.2.2",
     "markdown-it-container": "^2.0.0",
     "nuxt": "^2.8.1",
-    "nuxt-i18n": "^5.12.7"
+    "nuxt-i18n": "^5.12.7",
+    "pluralize": "^8.0.0"
   },
   "devDependencies": {
     "@kazupon/vue-i18n-loader": "^0.3.0",
