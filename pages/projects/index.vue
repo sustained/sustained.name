@@ -34,6 +34,11 @@ import { getEntities } from "~/modules/dynamic-markdown-mixin";
 
 export default {
   layout: "projects",
-  asyncData: getEntities("projects")
+  asyncData: getEntities("projects"),
+  head() {
+    return {
+      title: "Projects"
+    };
+  }
 };
 </script>
