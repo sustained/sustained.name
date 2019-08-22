@@ -52,7 +52,10 @@ const config = {
   /*
   ** Global CSS
   */
-  css: ["~assets/scss/sustained.scss"],
+  css: [
+    "~assets/scss/sustained.scss",
+    "vue2-animate/src/sass/vue2-animate.scss"
+  ],
 
   /*
   ** Plugins to load before mounting the App
