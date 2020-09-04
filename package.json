@@ -42,7 +42,7 @@
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-task-lists": "^2.1.1",
     "markdown-it-toc-done-right": "^4.0.2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "nodemon": "^1.19.1",
     "nuxt-purgecss": "^0.2.1",
     "nuxt-webfontloader": "^1.1.0",
