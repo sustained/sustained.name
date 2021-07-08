@@ -4,64 +4,41 @@
       <h1 class="large-title">{{ $t("projects") }}</h1>
 
       <ul class="list-disc list-outside">
-        <li>
+        <li v-for="(project, projectName) of projects" :key="projectName">
           <nuxt-link
-            :to="localePath('projects-ascension')"
+            :to="localePath({ name: 'projects-project', params: { project: projectName }})"
             class="text-green-600 text-xl my-8"
-          >Ascension</nuxt-link>
-        </li>
-
-        <li>
-          <nuxt-link :to="localePath('projects-cello')" class="text-green-600 text-xl my-8">Cello</nuxt-link>
-        </li>
-
-        <li>
-          <nuxt-link
-            :to="localePath('projects-fladdermus')"
-            class="text-green-600 text-xl my-8"
-          >Fladdermus</nuxt-link>
-        </li>
-
-        <li>
-          <nuxt-link
-            :to="localePath('projects-coffeescript-sublime-plugin')"
-            class="text-green-600 text-xl my-8"
-          >CoffeeScript-Sublime-Plugin</nuxt-link>
-        </li>
-
-        <li>
-          <nuxt-link
-            :to="localePath('projects-motion')"
-            class="text-green-600 text-xl my-8"
-          >Motion.js</nuxt-link>
-        </li>
-
-        <li>
-          <nuxt-link
-            :to="localePath('projects-sforzando')"
-            class="text-green-600 text-xl my-8"
-          >Sforzando</nuxt-link>
-        </li>
-
-        <li>
-          <nuxt-link
-            :to="localePath('projects-website')"
-            class="text-green-600 text-xl my-8"
-          >sustained.name</nuxt-link>
+          >{{ project.name }}</nuxt-link>
         </li>
 
         <li class="mt-4 list-none">More projects coming soon.</li>
       </ul>
+
+      <h2 class="large-title">Languages</h2>
+
+      <p>
+        <nuxt-link :to="localePath({ name: 'projects-languages' })">View languages.</nuxt-link>
+      </p>
+
+      <h2 class="large-title">Technologies</h2>
+
+      <p>
+        <nuxt-link :to="localePath({ name: 'projects-technologies' })">View technologies.</nuxt-link>
+      </p>
     </div>
   </section>
 </template>
 
 <script>
+import { getEntities } from "~/modules/dynamic-markdown-mixin";
+
 export default {
   layout: "projects",
-
-  head: {
-    title: "Projects Listing"
+  asyncData: getEntities("projects"),
+  head() {
+    return {
+      title: "Projects"
+    };
   }
 };
 </script>
