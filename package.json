@@ -37,7 +37,7 @@
     "eslint-plugin-vue": "^5.2.2",
     "frontmatter-markdown-loader": "^1.8.0",
     "highlight.js": "^9.15.8",
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^12.3.2",
     "markdown-it-anchor": "^5.2.4",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-task-lists": "^2.1.1",
